@@ -1,0 +1,29 @@
+.GridLayout {
+    display: flex;
+    gap: 8px; // equivalent to gap={1} in MUI
+    height: 100%;
+  
+    .GridItem {
+      padding: 16px; // equivalent to p: 2 in MUI
+  
+      &.left {
+        background-color: wheat;
+        flex: 40%; // equivalent to xs={12} md={5}
+      }
+  
+      &.right {
+        background-color: red;
+        flex: 60%; // equivalent to xs={12} md={7}
+      }
+    }
+  
+    @media (max-width: 1024px) {
+      flex-direction: row-reverse;
+      flex-wrap: wrap;
+      .GridItem {
+        flex: none; // Stack items on smaller screens
+        width: 100%;
+      }
+    }
+  }
+  

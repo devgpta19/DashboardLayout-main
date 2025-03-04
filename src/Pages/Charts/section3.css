@@ -1,0 +1,28 @@
+.GridLayout {
+  display: flex;
+  gap: 8px;
+  height: 100%;
+}
+.GridLayout .GridItem {
+  padding: 16px;
+}
+.GridLayout .GridItem.left {
+  background-color: wheat;
+  flex: 40%;
+}
+.GridLayout .GridItem.right {
+  background-color: red;
+  flex: 60%;
+}
+@media (max-width: 1024px) {
+  .GridLayout {
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+  }
+  .GridLayout .GridItem {
+    flex: none;
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=section3.css.map */
