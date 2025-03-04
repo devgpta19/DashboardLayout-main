@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Cards from "./Cards/Cards";
 import {
-  Grid2,
+  Grid,
   Box,
   AppBar,
   Toolbar,
@@ -27,7 +27,7 @@ const ResponsiveLayout = () => {
   const toggleSidebar = () => setOpen(!open);
 
   return (
-    <Grid2 container sx={{ height: "100vh" }}>
+    <Grid container sx={{ height: "100vh" }}>
       {isMobile && (
         <AppBar position="fixed" sx={{ bgcolor: "red" }}>
           <Toolbar>
@@ -40,7 +40,7 @@ const ResponsiveLayout = () => {
       )}
 
       {!isMobile ? (
-        <Grid2
+        <Grid
           item
           md={sidebarExpanded ? 2 : 0.5} 
           sx={{
@@ -56,7 +56,7 @@ const ResponsiveLayout = () => {
           onMouseLeave={() => setSidebarExpanded(false)}
         >
           Sidebar
-        </Grid2>
+        </Grid>
       ) : (
         <Drawer anchor="left" open={open} onClose={toggleSidebar}>
           <Box sx={{ width: 200, bgcolor: "red", color: "white", p: 2 }}>
@@ -69,7 +69,7 @@ const ResponsiveLayout = () => {
         </Drawer>
       )}
 
-      <Grid2
+      <Grid
         item
         xs={12}
         md={sidebarExpanded ? 10 : 11.5} 
@@ -103,8 +103,8 @@ const ResponsiveLayout = () => {
         <Box sx={{ flexGrow: 1, bgcolor: "lightsalmon", p: 2 }}>
           <LastSection />
         </Box>
-      </Grid2>
-    </Grid2>
+      </Grid>
+    </Grid>
   );
 };
 
