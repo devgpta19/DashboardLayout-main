@@ -1,16 +1,17 @@
 import React from "react";
-import { Grid, Typography } from "@mui/material";
+import { Grid2, Typography } from "@mui/material";
+import './LastSection.scss';
 
 const GridLayout = () => {
   return (
-    <Grid display="flex" spacing={1} gap={1} height="100%">
-      <Grid item xs={12} md={6} sx={{ bgcolor: "wheat", p: 2 }}>
-        <Typography variant="h5"></Typography>
-      </Grid>
-      <Grid item xs={12} md={6} sx={{ bgcolor: "red", p: 2 }}>
-        <Typography variant="h5"></Typography>
-      </Grid>
-    </Grid>
+    <Grid2 className="GridLayout">
+      <Grid2 item className="GridItem left4">
+        <Typography variant="h5">Section4 Left</Typography>
+      </Grid2>
+      <Grid2 item className="GridItem right4">
+        <Typography variant="h5">Section4 Right</Typography>
+      </Grid2>
+    </Grid2>
   );
 };
 

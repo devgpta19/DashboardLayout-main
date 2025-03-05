@@ -1,0 +1,26 @@
+.GridLayout {
+  display: flex;
+  gap: 16px;
+  height: 100%;
+  padding: 16px;
+}
+@media (max-width: 768px) {
+  .GridLayout {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+.GridLayout .GridItem {
+  flex: 1;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+.GridLayout .left {
+  background-color: wheat;
+}
+.GridLayout .right {
+  background-color: red;
+}
+

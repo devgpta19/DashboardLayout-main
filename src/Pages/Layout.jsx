@@ -1,7 +1,110 @@
+// import React, { useState } from "react";
+// import Cards from "./Cards/Cards";
+// import {
+//   Box,
+//   AppBar,
+//   Toolbar,
+//   Typography,
+//   IconButton,
+//   Drawer,
+//   useMediaQuery,
+//   useTheme,
+//   List,
+//   ListItem,
+//   ListItemText,
+//   Grid2,
+// } from "@mui/material";
+// import MenuIcon from "@mui/icons-material/Menu";
+// import Section3 from "./Charts/Section3";
+// import LastSection from "./LastSection/LastSection";
+// import "./Layout.scss"; 
+
+// const ResponsiveLayout = () => {
+//   const theme = useTheme();
+//   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+//   const [open, setOpen] = useState(false);
+//   const [sidebarExpanded, setSidebarExpanded] = useState(false);
+
+//   const toggleSidebar = () => {setOpen(!open);console.log(open);}
+
+//   return (
+//     <Grid2 container className="ResponsiveLayout">
+//       {isMobile && (
+//         <AppBar position="fixed" sx={{ bgcolor: "red" }}>
+//           <Toolbar>
+//             <IconButton edge="start" color="inherit" onClick={toggleSidebar}>
+//               <MenuIcon />
+//             </IconButton>
+//             <Typography variant="h6">Navbar</Typography>
+//           </Toolbar>
+//         </AppBar>
+//       )}
+
+//       {!isMobile ? (
+
+//           <Grid2
+//           item
+//           className="Sidebar"
+//           onMouseEnter={() => {setSidebarExpanded(true);toggleSidebar();}}
+//           onMouseLeave={() => {setSidebarExpanded(false);}}
+//         >
+//           <Drawer anchor="left" open={open}>
+//           <Box className="DrawerSidebar">
+//             <List>
+//               <ListItem button onClick={toggleSidebar}>
+//                 <ListItemText primary="Sidebar Content" />
+//               </ListItem>
+//             </List>
+//           </Box>
+//         </Drawer>
+//         </Grid2>
+
+//       ) : (
+//         <Drawer anchor="left" open={open} onClose={toggleSidebar}>
+//           <Box className="DrawerSidebar">
+//             <List>
+//               <ListItem button onClick={toggleSidebar}>
+//                 <ListItemText primary="Sidebar Content" />
+//               </ListItem>
+//             </List>
+//           </Box>
+//         </Drawer>
+//       )}
+
+//       <Grid2
+//         item
+//         xs={12}
+//         md={sidebarExpanded ? 10 : 11.5}
+//         className="MainContent"
+//       >
+//         {!isMobile && (
+//           <Box className="Header">
+//             <Typography variant="h6">Header</Typography>
+//           </Box>
+//         )}
+
+//         <Box className="CardsSection">
+//           <Cards />
+//         </Box>
+
+//         <Box className="ChartSection">
+//           <Section3 />
+//         </Box>
+
+//         <Box className="LastSection">
+//           <LastSection />
+//         </Box>
+//       </Grid2>
+//     </Grid2>
+//   );
+// };
+
+// export default ResponsiveLayout;
+
+
 import React, { useState } from "react";
 import Cards from "./Cards/Cards";
 import {
-  Grid,
   Box,
   AppBar,
   Toolbar,
@@ -13,23 +116,26 @@ import {
   List,
   ListItem,
   ListItemText,
+  Grid2,
 } from "@mui/material";
+// import Grid2 from "@mui/material/Unstable_Grid2"; 
 import MenuIcon from "@mui/icons-material/Menu";
 import Section3 from "./Charts/Section3";
 import LastSection from "./LastSection/LastSection";
-
+import "./Layout.scss";
+// import "./Cards/card.scss"
 const ResponsiveLayout = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery("(max-width:1024px)"); // Changed from `theme.breakpoints.down("lg")`
   const [open, setOpen] = useState(false);
   const [sidebarExpanded, setSidebarExpanded] = useState(false);
 
   const toggleSidebar = () => setOpen(!open);
 
   return (
-    <Grid container sx={{ height: "100vh" }}>
+    <Grid2 container className="ResponsiveLayout">
       {isMobile && (
-        <AppBar position="fixed" sx={{ bgcolor: "red" }}>
+        <AppBar position="fixed" className="AppBar">
           <Toolbar>
             <IconButton edge="start" color="inherit" onClick={toggleSidebar}>
               <MenuIcon />
@@ -39,72 +145,66 @@ const ResponsiveLayout = () => {
         </AppBar>
       )}
 
-      {!isMobile ? (
-        <Grid
+      {/* Sidebar for larger screens */}
+      {!isMobile && (
+        <Grid2
           item
-          md={sidebarExpanded ? 2 : 0.5} 
-          sx={{
-            bgcolor: "red",
-            color: "white",
-            p: 2,
-            transition: "width 0.3s ease-in-out",
-            overflow: "hidden",
-            whiteSpace: "nowrap",
-            "&:hover": { width: "20%" }, 
-          }}
-          onMouseEnter={() => setSidebarExpanded(true)}
-          onMouseLeave={() => setSidebarExpanded(false)}
-        >
-          Sidebar
-        </Grid>
-      ) : (
-        <Drawer anchor="left" open={open} onClose={toggleSidebar}>
-          <Box sx={{ width: 200, bgcolor: "red", color: "white", p: 2 }}>
-            <List>
-              <ListItem button onClick={toggleSidebar}>
-                <ListItemText primary="Sidebar Content" />
-              </ListItem>
-            </List>
-          </Box>
-        </Drawer>
+          className="Sidebar"
+          onMouseEnter={() => {
+            setSidebarExpanded(true);
+            toggleSidebar();
+          }}>
+          <Drawer anchor="left" open={open} sx={{ width: 300 }}
+            className="Drawer">
+            <Box 
+            className="DrawerBox"
+              onMouseLeave={() => {
+                setSidebarExpanded(false);
+                toggleSidebar();
+              }}>
+              <Grid2>
+                <List>
+                  <ListItem >
+                    <ListItemText primary="Sidebar Content" />
+                  </ListItem>
+                </List>
+              </Grid2>
+            </Box>
+          </Drawer>
+        </Grid2>
       )}
 
-      <Grid
-        item
-        xs={12}
-        md={sidebarExpanded ? 10 : 11.5} 
-        sx={{
-          bgcolor: "lightgray",
-          mt: isMobile ? 8 : 0,
-          display: "flex",
-          flexDirection: "column",
-          transition: "width 0.3s ease-in-out",
-        }}
-      >
+      {/* Drawer for mobile screens */}
+      {/* <Drawer anchor="left" open={open} onClose={()=>{setOpen(false);setSidebarExpanded(false);}}>
+        <Box className="DrawerSidebar">
+          <List>
+            <ListItem button onClick={toggleSidebar}>
+              <ListItemText primary="Sidebar Content" />
+            </ListItem>
+          </List>
+        </Box>
+      </Drawer> */}
+
+      <Grid2 item xs={12} md={sidebarExpanded ? 10 : 11.5} className="MainContent">
         {!isMobile && (
-          <Box sx={{ height: "38px", bgcolor: "lightblue", p: 1 }}>
+          <Box className="Header">
             <Typography variant="h6">Header</Typography>
           </Box>
         )}
 
-        <Box
-          display="flex"
-          justifyContent="space-between"
-          alignItems="center"
-          sx={{ height: "20%", bgcolor: "lightcoral", p: 1.5 }}
-        >
+        <Box className="CardsSection">
           <Cards />
         </Box>
 
-        <Box  sx={{ height: "40%", bgcolor: "transparent", p: 1.5 }}>
-          <Section3/>
+        <Box className="ChartSection">
+          <Section3 />
         </Box>
 
-        <Box sx={{ flexGrow: 1, bgcolor: "lightsalmon", p: 2 }}>
+        <Box className="LastSection">
           <LastSection />
         </Box>
-      </Grid>
-    </Grid>
+      </Grid2>
+    </Grid2>
   );
 };
 

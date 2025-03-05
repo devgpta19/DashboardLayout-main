@@ -1,0 +1,194 @@
+@import "../Sass/style.scss";
+
+// Define breakpoints
+// $mobile: 768px;
+// $tablet: 1024px;
+$mobile: 1024px;
+
+
+// .DrawerBox {
+//   justify-content: space-between;
+//   align-items: center;
+//   width: $OpenSideBar-width;
+//   height: 100%;
+//   background-color: brown;
+// }
+
+// .DrawerBox {
+//   width: $OpenSideBar-width;
+//   background-color: red;
+//   padding: 16px;
+//   height: 100%;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .ResponsiveLayout {
+//   height: 100vh;
+//   display: flex;
+
+//   // Sidebar styles
+//   .Sidebar {
+//     background-color: $theme-color;
+//     color: red;
+//     transition: width 0.3s ease-in-out;
+//     overflow: hidden;
+//     white-space: nowrap;
+//     height: 100vh;
+//     width: $CloseSidebar-width;
+
+//     .Drawer {
+
+//       >.DrawerBox {
+//         width: $OpenSideBar-width;
+//         background-color: blue;
+//         padding: 16px;
+//         height: 100%;
+//       }
+//     }
+
+//     &:hover {
+//       // width: $OpenSideBar-width;
+//     }
+
+//     @media (max-width: $mobile) {
+//       display: none; // Hide sidebar on mobile
+//     }
+//   }
+
+
+
+
+
+.DrawerBox {
+  height: 100%; 
+  width: 250px;
+  background-color: purple;
+}
+
+
+
+.ResponsiveLayout {
+  height: 100vh;
+  display: flex;
+
+  // Sidebar styles
+  .Sidebar {
+    background-color: $theme-color;
+    color: red;
+    transition: width 0.3s ease-in-out;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 100vh;
+    width: $CloseSidebar-width;
+
+    .Drawer {
+
+      .DrawerBox {
+        width: $OpenSideBar-width;
+        background-color: blue;
+        padding: 16px;
+        height: 100%;
+      }
+      
+    }
+
+    &:hover {
+      // Optionally change width or styles on hover
+    }
+
+    @media (max-width: $mobile) {
+      display: none; // Hide sidebar on mobile
+    }
+  }
+
+  // Main Content Styles
+  .MainContent {
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s ease-in-out;
+    flex-grow: 1;
+    height: 100vh;
+  }
+
+  // Navbar styles (Only for mobile)
+  // .Navbar {
+  //   position: fixed;
+  //   width: 100%;
+  //   top: 0;
+  //   left: 0;
+  //   z-index: 1000;
+  //   background-color: red;
+  //   height: 60px;
+
+  //   @media (min-width: $mobile) {
+  //     display: none; // Hide Navbar on larger screens
+  //   }
+  // }
+
+  // Header styles (Hidden on mobile)
+  .Header {
+    height: $header-height;
+    background-color: lightblue;
+    padding: $paddingY $paddingX;
+
+    @media (max-width: $mobile) {
+      display: none;
+    }
+  }
+
+  // Section for Cards
+  .CardsSection {
+    background-color: greenyellow;
+    padding: $paddingY $paddingX;
+    display: flex;
+    gap: $Uni-gap;
+    // justify-content: center;
+    // align-items: center;
+    height: 150px;
+
+    @media (max-width: $mobile) {
+      flex-direction: column; // Stack cards on smaller screens
+      align-items: center;
+    }
+  }
+
+  // Section for Charts
+  .ChartSection {
+    flex: 2;
+    background-color: blue;
+    padding: $paddingY $paddingX;
+
+    @media (max-width: $mobile) {
+      flex: 1;
+    }
+  }
+
+  // Last Section
+  .LastSection {
+    flex: 1;
+    background-color: lightsalmon;
+    padding: 16px;
+  }
+
+  // Mobile Adjustments
+  @media (max-width: $mobile) {
+    .MainContent {
+      margin-top: 60px; // Adjust for mobile navbar
+    }
+  }
+}

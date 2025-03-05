@@ -1,6 +1,26 @@
-.container{
-  background-color: antiquewhite;
-   h1{
-    color: blue;
-   }
-}
+$theme-color : #ab20fd;
+
+// SCREEN
+$screen-width : 100vw;
+$screen-height : 100vh;
+
+// HEADER
+$header-height : 48px;
+
+// SIDEBAR
+$CloseSidebar-width : 65px;
+$OpenSideBar-width : 240px;
+
+// FLEX
+$Uni-gap : 10px;
+
+// ASPECT RATIO
+$ratio : 1.77;
+
+// PADDING
+$paddingX : 10px;
+$paddingY : 5px;
+
+// MARGIN
+$marginX : 10px;
+$marginY : 5px;
