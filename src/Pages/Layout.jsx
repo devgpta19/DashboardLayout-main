@@ -123,6 +123,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Section3 from "./Charts/Section3";
 import LastSection from "./LastSection/LastSection";
 import "./Layout.scss";
+// import "./_Layout.scss";
 // import "./Cards/card.scss"
 const ResponsiveLayout = () => {
   const theme = useTheme();
@@ -185,7 +186,7 @@ const ResponsiveLayout = () => {
         </Box>
       </Drawer> */}
 
-      <Grid2 item xs={12} md={sidebarExpanded ? 10 : 11.5} className="MainContent">
+      <Grid2 item className="MainContent">
         {!isMobile && (
           <Box className="Header">
             <Typography variant="h6">Header</Typography>

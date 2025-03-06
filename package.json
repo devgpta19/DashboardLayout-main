@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build & npx sass src/Sass/style.scss src/Sass/style.css & npx sass src/Pages/Cards/card.scss src/Pages/Cards/card.css & npx sass src/Pages/Charts/section3.scss src/Pages/Charts/section3.css & npx sass src/Pages/Layout.scss src/Pages/Layout.css",
     "lint": "eslint .",
     "preview": "vite preview"
   },

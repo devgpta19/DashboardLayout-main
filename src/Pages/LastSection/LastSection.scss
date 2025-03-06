@@ -1,32 +1,65 @@
-@import "../../Sass/style.scss";
+// @import "../../Sass/style.scss";
 
+
+// .GridLayout {
+//   display: flex;
+//   // height: 100%;
+
+
+//   .GridItem {
+//     padding: 16px;
+
+//     &.left4 {
+//       background-color: wheat;
+//       flex: 50%;
+//     }
+
+//     &.right4 {
+//       background-color: red;
+//       flex: 50%;
+//     }
+//   }
+
+//   @media (max-width: 1024px) {
+//     flex-direction: row-reverse;
+//     flex-wrap: wrap;
+
+//     .GridItem {
+//       flex: none;
+//       width: 100%;
+//     }
+//   }
+// }
+
+
+
+@import "../../Sass/style.scss";
+@import "../Cards/card.scss";
 
 .GridLayout {
-    display: flex;
-    gap: $Uni-gap; 
-    height: 100%;
-  
-    .GridItem {
-      padding: 16px; 
-  
-      &.left4 {
-        background-color: wheat;
-        flex: 50%; 
-      }
-  
-      &.right4 {
-        background-color: red;
-        flex: 50%; 
-      }
+  display: flex;
+  padding: $paddingY $paddingX;
+  .GridItem4 {
+    margin: $marginY $marginX;
+    height: calc((#{$card-width}*2 + #{$marginX}*2)/#{$ratio});
+    background-color: $cal-rtBg-color;
+
+    &.left4 {
+      width: calc(#{$card-width}*2.5 + #{$marginX}*3);
     }
-  
-    @media (max-width: 1024px) {
-      flex-direction: row-reverse;
-      flex-wrap: wrap;
-      .GridItem {
-        flex: none;
-        width: 100%;
-      }
+
+    &.right4 {
+      width: calc(#{$card-width}*2.5 + #{$marginX}*3);
     }
   }
-  
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    .GridItem4 {
+      flex: none; // Stack items on smaller screens
+      width: 100%;
+    }
+  }
+}

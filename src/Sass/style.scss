@@ -1,26 +1,37 @@
-$theme-color : #ab20fd;
+// COLORS
+$theme-color : #200032;
+$cardsBg-color : #00ff9d;
+$chartsBg-color : #005eff;
+$cal-rtBg-color : #ffd900;
+$blackBg-color : #ffb2b2;
+$whiteBg-color : #ffffff;
+$sideBar-color : red;
 
 // SCREEN
 $screen-width : 100vw;
 $screen-height : 100vh;
 
-// HEADER
-$header-height : 48px;
-
 // SIDEBAR
 $CloseSidebar-width : 65px;
 $OpenSideBar-width : 240px;
+
+// HEADER
+$header-height : 48px;
+$header-width : calc(100% - #{$CloseSidebar-width});
 
 // FLEX
 $Uni-gap : 10px;
 
 // ASPECT RATIO
-$ratio : 1.77;
+$ratio : 16/9;
 
 // PADDING
-$paddingX : 10px;
+$paddingX : 5px;
 $paddingY : 5px;
 
 // MARGIN
-$marginX : 10px;
-$marginY : 5px;
+$marginX : 5px;
+$marginY : 0;
+
+// SCROLLBAR
+$scrollbar-width : 8px;

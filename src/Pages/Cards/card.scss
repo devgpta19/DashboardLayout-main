@@ -1,7 +1,7 @@
 @import "../../Sass/style.scss";
 
-$width: calc((#{$screen-width} - #{$CloseSidebar-width} - (4 * #{$Uni-gap}) - (2 * #{$paddingX})) / 5);
-$height: calc(#{$width}/#{$ratio});
+$card-width: calc((#{$screen-width} - #{$CloseSidebar-width} - (10 * #{$marginX}) - (2 * #{$paddingX})) / 5);
+$card-height: calc(#{$card-width}/#{$ratio});
 
 // Hide scrollbar for a clean look
 .Box::-webkit-scrollbar {
@@ -9,20 +9,16 @@ $height: calc(#{$width}/#{$ratio});
 }
 
 .Box {
-  justify-content: space-between;
-  align-items: center;
-  width: $width;
-  // height: 100%;
-  $height: calc(#{$width}/#{$ratio});
-  height: $height;
+  width: $card-width;
+  height: $card-height;
+  margin: $marginY $marginX;
   background-color: brown;
 
   .Card {
     background-color: aqua;
-    width: $width;
-    // width: 100%;
+    width: 100%;
     height:100%;
-    padding: 16px;
+    padding: $paddingY $paddingX;
   }
 
   // Laptop and larger screens: Cards stay inside the container, no scrolling

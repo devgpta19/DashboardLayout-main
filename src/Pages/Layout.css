@@ -1,17 +1,117 @@
-/* Error: Undefined variable.
- *    ,
- * 20 |     width: $OpenSideBar-width;
- *    |            ^^^^^^^^^^^^^^^^^^
- *    '
- *   src\Pages\Layout.scss 20:12  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a    \2577 \a 20 \2502      width: $OpenSideBar-width;\d\a    \2502             ^^^^^^^^^^^^^^^^^^\a    \2575 \a   src\\Pages\\Layout.scss 20:12  root stylesheet";
+.Box::-webkit-scrollbar {
+  display: none;
 }
+
+.Box {
+  width: calc((100vw - 65px - 8 * 5px - 2 * 5px) / 5);
+  margin: 0 5px;
+  height: calc(calc((100vw - 65px - 8 * 5px - 2 * 5px) / 5) / 1.7777777778);
+  background-color: brown;
+}
+.Box .Card {
+  background-color: aqua;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+}
+@media (min-width: 1025px) {
+  .Box {
+    flex-wrap: wrap;
+    overflow: hidden;
+    justify-content: center;
+  }
+}
+@media (max-width: 1024px) {
+  .Box {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+  .Box .Card {
+    min-width: 300px;
+    height: 100%;
+  }
+}
+
+.DrawerBox {
+  height: 100%;
+  width: 250px;
+  background-color: purple;
+}
+
+.ResponsiveLayout {
+  height: 100vh;
+  display: flex;
+}
+.ResponsiveLayout .Sidebar {
+  background-color: #ab20fd;
+  color: red;
+  transition: width 0.3s ease-in-out;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 100vh;
+  width: 65px;
+}
+.ResponsiveLayout .Sidebar .Drawer .DrawerBox {
+  width: 240px;
+  background-color: blue;
+  padding: 16px;
+  height: 100%;
+}
+@media (max-width: 1024px) {
+  .ResponsiveLayout .Sidebar {
+    display: none;
+  }
+}
+.ResponsiveLayout .MainContent {
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease-in-out;
+  flex-grow: 1;
+  height: 100vh;
+}
+.ResponsiveLayout .Header {
+  height: 48px;
+  background-color: lightblue;
+  padding: 3px 5px;
+}
+@media (max-width: 1024px) {
+  .ResponsiveLayout .Header {
+    display: none;
+  }
+}
+.ResponsiveLayout .CardsSection {
+  background-color: greenyellow;
+  padding: 3px 5px;
+  display: flex;
+  height: calc(calc((100vw - 65px - 8 * 5px - 2 * 5px) / 5) / 1.7777777778)1;
+}
+@media (max-width: 1024px) {
+  .ResponsiveLayout .CardsSection {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.ResponsiveLayout .ChartSection {
+  flex: 2;
+  background-color: blue;
+  padding: 3px 5px;
+}
+@media (max-width: 1024px) {
+  .ResponsiveLayout .ChartSection {
+    flex: 1;
+  }
+}
+.ResponsiveLayout .LastSection {
+  flex: 1;
+  background-color: lightsalmon;
+  padding: 16px;
+}
+@media (max-width: 1024px) {
+  .ResponsiveLayout .MainContent {
+    margin-top: 60px;
+  }
+}
+
+/*# sourceMappingURL=Layout.css.map */

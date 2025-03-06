@@ -1,4 +1,5 @@
 @import "../Sass/style.scss";
+@import "./Cards/card.scss";
 
 // Define breakpoints
 // $mobile: 768px;
@@ -76,7 +77,7 @@ $mobile: 1024px;
 .DrawerBox {
   height: 100%; 
   width: 250px;
-  background-color: purple;
+  background-color: $sideBar-color;
 }
 
 
@@ -84,16 +85,18 @@ $mobile: 1024px;
 .ResponsiveLayout {
   height: 100vh;
   display: flex;
+  // overflow: hidden;
 
   // Sidebar styles
   .Sidebar {
-    background-color: $theme-color;
+    background-color: $sideBar-color;
     color: red;
     transition: width 0.3s ease-in-out;
     overflow: hidden;
     white-space: nowrap;
     height: 100vh;
     width: $CloseSidebar-width;
+    position: fixed;
 
     .Drawer {
 
@@ -117,6 +120,7 @@ $mobile: 1024px;
 
   // Main Content Styles
   .MainContent {
+    margin-left: $CloseSidebar-width;
     background-color: lightgray;
     display: flex;
     flex-direction: column;
@@ -143,8 +147,9 @@ $mobile: 1024px;
   // Header styles (Hidden on mobile)
   .Header {
     height: $header-height;
-    background-color: lightblue;
+    background-color: $blackBg-color;
     padding: $paddingY $paddingX;
+    color: $whiteBg-color;
 
     @media (max-width: $mobile) {
       display: none;
@@ -153,13 +158,10 @@ $mobile: 1024px;
 
   // Section for Cards
   .CardsSection {
-    background-color: greenyellow;
+    background-color: $theme-color;
     padding: $paddingY $paddingX;
     display: flex;
-    gap: $Uni-gap;
-    // justify-content: center;
-    // align-items: center;
-    height: 150px;
+    height: #{$card-height}+1;
 
     @media (max-width: $mobile) {
       flex-direction: column; // Stack cards on smaller screens
@@ -169,9 +171,7 @@ $mobile: 1024px;
 
   // Section for Charts
   .ChartSection {
-    flex: 2;
-    background-color: blue;
-    padding: $paddingY $paddingX;
+    background-color: $theme-color;
 
     @media (max-width: $mobile) {
       flex: 1;
@@ -180,9 +180,7 @@ $mobile: 1024px;
 
   // Last Section
   .LastSection {
-    flex: 1;
-    background-color: lightsalmon;
-    padding: 16px;
+    background-color: $theme-color;
   }
 
   // Mobile Adjustments

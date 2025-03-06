@@ -1,17 +1,17 @@
 import React from "react";
-import { Grid2, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import './section3.scss';
 
 const GridLayout = () => {
   return (
-    <Grid2 className="GridLayout">
-      <Grid2 item className="GridItem left">
-        <Typography variant="h5"></Typography>
-      </Grid2>
-      <Grid2 item className="GridItem right">
-        <Typography variant="h5"></Typography>
-      </Grid2>
-    </Grid2>
+    <Box className="BoxLayout">
+      <Box item className="BoxItem Boxleft">
+        <Typography variant="h5">Chart 1</Typography>
+      </Box>
+      <Box item className="BoxItem Boxright">
+        <Typography variant="h5">Chart 2</Typography>
+      </Box>
+    </Box>
   );
 };
 
