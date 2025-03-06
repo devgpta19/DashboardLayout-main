@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
-import './LastSection.scss';
+import './CalendarRT.scss';
 
 const GridLayout = () => {
   return (

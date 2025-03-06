@@ -1,0 +1,111 @@
+@use "../../Sass/style.scss" as style;
+@use "../Cards/card.scss" as cards;
+
+// Define breakpoints
+// $mobile: 768px;
+// $tablet: 1024px;
+$mobile: 1024px;
+
+.DrawerBox {
+  height: 100%; 
+  width: 250px;
+  background-color: style.$sideBar-color;
+}
+
+
+
+.ResponsiveLayout {
+  height: 100vh;
+  display: flex;  
+
+  .Sidebar {
+    background-color: style.$sideBar-color;
+    color: style.$whiteBg-color;
+    transition: width 0.3s ease-in-out;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 100vh;
+    width: style.$CloseSidebar-width;
+    position: fixed;
+
+    @media (max-width: $mobile) {
+      display: none;
+    }
+  }
+
+  // Main Content Styles
+  .MainContent {
+    margin-left: style.$CloseSidebar-width;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s ease-in-out;
+    flex-grow: 1;
+    height: 100vh;
+  }
+
+  // Navbar styles (Only for mobile)
+  .Navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: red;
+    height: 60px;
+
+    @media (min-width: $mobile) {
+      display: none; // Hide Navbar on larger screens
+    }
+  }
+
+  // Header styles (Hidden on mobile)
+  .Header {
+    height: style.$header-height;
+    background-color: style.$headerBg-color;
+    padding: style.$paddingY style.$paddingX;
+    color: style.$whiteBg-color;
+
+    @media (max-width: $mobile) {
+      display: none;
+    }
+  }
+
+  // Section for Cards
+  .CardsSection {
+    background-color: style.$theme-color;
+    padding: style.$paddingY style.$paddingX;
+    display: flex;
+    height: #{cards.$card-height}+1;
+
+    @media (max-width: $mobile) {
+      flex-direction: column; // Stack cards on smaller screens
+      align-items: center;
+    }
+  }
+
+  // Section for Charts
+  .ChartSection {
+    background-color: style.$theme-color;
+
+    @media (max-width: $mobile) {
+      flex: 1;
+    }
+  }
+
+  // Last Section
+  .CalendarRT {
+    background-color: style.$theme-color;
+  }
+
+  // Mobile Adjustments
+  @media (max-width: $mobile) {
+    .MainContent {
+      margin-top: 60px; 
+      margin-left: 0;
+    }
+
+    
+  }
+
+}

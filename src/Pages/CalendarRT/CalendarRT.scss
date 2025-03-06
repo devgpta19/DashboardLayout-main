@@ -1,0 +1,30 @@
+@use "../../Sass/style.scss" as style;
+@use "../Cards/card.scss" as cards;
+@use "../../Sass/mixin" as m;
+
+
+$cal-rtHeight: calc((#{cards.$card-width}*2.5 + #{style.$marginX}*3)/#{style.$ratio});
+
+.GridLayout {
+
+  display: flex;
+  flex-direction: column;
+  padding: style.$paddingY style.$paddingX;
+
+  .GridItem4 {
+    padding: style.$paddingY style.$paddingX;
+    margin: style.$marginY style.$marginX;
+    height: $cal-rtHeight;
+    background-color: style.$cal-rtBg-color;
+    width: calc(#{cards.$card-width}*5 + style.$CloseSidebar-width + #{style.$marginX}*8);
+  }
+  
+  @include m.breakpoint('large') {
+    flex-direction: row;
+    
+    .GridItem4 {
+      height: $cal-rtHeight;
+      width: calc((#{cards.$card-width}*2.5 + #{style.$marginX}*5));
+    }
+  }
+}

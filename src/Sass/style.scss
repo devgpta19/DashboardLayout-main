@@ -1,4 +1,13 @@
-// COLORS
+// IMPORT
+@use "sass:math";
+
+// SCREEN RESOLUTION
+$mobile : 768px;
+$tablet : 1024px;
+
+// Define breakpoints
+
+// BACKGROUND COLORS
 $theme-color : #200032;
 $cardsBg-color : #00ff9d;
 $chartsBg-color : #005eff;
@@ -6,8 +15,9 @@ $cal-rtBg-color : #ffd900;
 $blackBg-color : #000000;
 $whiteBg-color : #ffffff;
 $sideBar-color : red;
+$headerBg-color : #606060;
 
-// SCREEN
+// SCREEN Height width
 $screen-width : 100vw;
 $screen-height : 100vh;
 
@@ -23,7 +33,7 @@ $header-width : calc(100% - #{$CloseSidebar-width});
 $Uni-gap : 10px;
 
 // ASPECT RATIO
-$ratio : 16/9;
+$ratio : math.div(16, 9);
 
 // PADDING
 $paddingX : 5px;
