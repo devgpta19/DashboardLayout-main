@@ -41,7 +41,7 @@
   padding: $paddingY $paddingX;
   .GridItem4 {
     margin: $marginY $marginX;
-    height: calc((#{$card-width}*2 + #{$marginX}*2)/#{$ratio});
+    height: calc((#{$card-width}*1.5 + #{$marginX}*3)/#{$ratio});
     background-color: $cal-rtBg-color;
 
     &.left4 {
