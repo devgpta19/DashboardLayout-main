@@ -6,7 +6,7 @@
 $card-width: calc((#{style.$screen-width} - #{style.$CloseSidebar-width} - (10 * #{style.$marginX}) - (2 * #{style.$paddingX})) / 5);
 $card-height: calc(#{$card-width}/#{style.$ratio});
 
-$mini-cardWidth: 300px;
+$mini-cardWidth: 282px;
 $mini-cardHeight: calc(#{$mini-cardWidth}/#{style.$ratio});
 
 .Box {
@@ -14,8 +14,8 @@ $mini-cardHeight: calc(#{$mini-cardWidth}/#{style.$ratio});
   flex-shrink: 0;
   margin: style.$marginY style.$marginX;
   background-color: rgb(0, 245, 53);
-  height: $mini-cardHeight;
-  width: 300px;
+  min-height: $mini-cardHeight;
+  min-width: $mini-cardWidth;
 
   .Card {
     background-color: rgb(108, 191, 191);

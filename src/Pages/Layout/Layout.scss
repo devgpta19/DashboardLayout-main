@@ -9,6 +9,13 @@
 // $tablet: 1024px;
 $mobile: 1024px;
 
+// $width: calc(#{style.$screen-width}-#{style.$CloseSidebar-width});
+$width: calc(100vw-#{style.$CloseSidebar-width});
+
+*::-webkit-scrollbar{
+  display: none;
+}
+
 .DrawerBox {
   height: 100%;
   width: 250px;
@@ -27,7 +34,7 @@ $mobile: 1024px;
     transition: width 0.3s ease-in-out;
     overflow: hidden;
     white-space: nowrap;
-    height: 100vh;
+    min-height: 100vh;
     width: style.$CloseSidebar-width;
     position: fixed;
 
@@ -76,45 +83,30 @@ $mobile: 1024px;
 
   // Section for Cards
 
-
-  //   .CardsSection {
-  //     background-color: style.$theme-color;
-  //     padding: style.$paddingY style.$paddingX;
-  //     display: flex;
-  //     flex-direction: row;
-  //     flex-wrap: nowrap;
-
-  //     @media (max-width: 1024px) {
-  //       flex-wrap: nowrap;
-  //       overflow-x: auto;
-  //       justify-content: flex-start;
-  //     }  
-  // }
-
-
-  // @include m.breakpoint('large') {
   .CardsSection {
     background-color: style.$theme-color;
     padding: style.$paddingY style.$paddingX;
     display: flex;
     flex-direction: row;
-    height: #{cards.$card-height}+1;
-    $width: calc(#{style.$screen-width}-#{style.$CloseSidebar-width});
-    width: #{$width}+1;
+    height: #{cards.$card-height}1;
+    // width: #{$width};
+    width: 100%;
     overflow-x:auto;
     
+    ::-webkit-scrollbar{
+      display: none;
+    }
     
     @media (max-width: 1024px) {
       padding-top: style.$Uni-gap ;
-      // flex-wrap: nowrap;
-      // justify-content: flex-start;
       min-height: cards.$mini-cardHeight;
       display: grid;
-      grid-auto-flow: column; // Forces horizontal layout
+      grid-auto-flow: column;
+      justify-content: flex-start;
       grid-auto-columns: min-content; // Ensures items don't shrink
-      gap: 10px; // Space between cards
       scroll-behavior: smooth;
       white-space: nowrap;
+      
     }
 
 
