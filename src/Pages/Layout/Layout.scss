@@ -1,5 +1,8 @@
 @use "../../Sass/style.scss" as style;
 @use "../Cards/card.scss" as cards;
+@use "../../Sass/mixin" as m;
+@use "sass:math";
+
 
 // Define breakpoints
 // $mobile: 768px;
@@ -7,7 +10,7 @@
 $mobile: 1024px;
 
 .DrawerBox {
-  height: 100%; 
+  height: 100%;
   width: 250px;
   background-color: style.$sideBar-color;
 }
@@ -16,7 +19,7 @@ $mobile: 1024px;
 
 .ResponsiveLayout {
   height: 100vh;
-  display: flex;  
+  display: flex;
 
   .Sidebar {
     background-color: style.$sideBar-color;
@@ -72,17 +75,51 @@ $mobile: 1024px;
   }
 
   // Section for Cards
+
+
+  //   .CardsSection {
+  //     background-color: style.$theme-color;
+  //     padding: style.$paddingY style.$paddingX;
+  //     display: flex;
+  //     flex-direction: row;
+  //     flex-wrap: nowrap;
+
+  //     @media (max-width: 1024px) {
+  //       flex-wrap: nowrap;
+  //       overflow-x: auto;
+  //       justify-content: flex-start;
+  //     }  
+  // }
+
+
+  // @include m.breakpoint('large') {
   .CardsSection {
     background-color: style.$theme-color;
     padding: style.$paddingY style.$paddingX;
     display: flex;
+    flex-direction: row;
     height: #{cards.$card-height}+1;
-
-    @media (max-width: $mobile) {
-      flex-direction: column; // Stack cards on smaller screens
-      align-items: center;
+    $width: calc(#{style.$screen-width}-#{style.$CloseSidebar-width});
+    width: #{$width}+1;
+    overflow-x:auto;
+    
+    
+    @media (max-width: 1024px) {
+      padding-top: style.$Uni-gap ;
+      // flex-wrap: nowrap;
+      // justify-content: flex-start;
+      min-height: cards.$mini-cardHeight;
+      display: grid;
+      grid-auto-flow: column; // Forces horizontal layout
+      grid-auto-columns: min-content; // Ensures items don't shrink
+      gap: 10px; // Space between cards
+      scroll-behavior: smooth;
+      white-space: nowrap;
     }
+
+
   }
+
 
   // Section for Charts
   .ChartSection {
@@ -101,11 +138,11 @@ $mobile: 1024px;
   // Mobile Adjustments
   @media (max-width: $mobile) {
     .MainContent {
-      margin-top: 60px; 
+      margin-top: 60px;
       margin-left: 0;
     }
 
-    
+
   }
 
 }

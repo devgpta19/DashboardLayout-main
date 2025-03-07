@@ -15,4 +15,3 @@ $breakpoints: (
         @warn "Breakpoint '#{$breakpoint}' not found in $breakpoints map."; 
     }
 }
-

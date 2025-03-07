@@ -10,21 +10,26 @@ $cal-rtHeight: calc((#{cards.$card-width}*2.5 + #{style.$marginX}*3)/#{style.$ra
   display: flex;
   flex-direction: column;
   padding: style.$paddingY style.$paddingX;
-
+  margin: style.$marginX style.$marginY;
+  height: 1000px;
+  
   .GridItem4 {
-    padding: style.$paddingY style.$paddingX;
-    margin: style.$marginY style.$marginX;
-    height: $cal-rtHeight;
-    background-color: style.$cal-rtBg-color;
+    height: 50%;
     width: calc(#{cards.$card-width}*5 + style.$CloseSidebar-width + #{style.$marginX}*8);
+    padding: style.$paddingY style.$paddingX;
+    background-color: style.$cal-rtBg-color;
+    margin: style.$marginX style.$marginY;
+    
   }
   
   @include m.breakpoint('large') {
     flex-direction: row;
+    height: calc($cal-rtHeight + 5px);
     
     .GridItem4 {
       height: $cal-rtHeight;
       width: calc((#{cards.$card-width}*2.5 + #{style.$marginX}*5));
+      margin: style.$marginY style.$marginX;
     }
   }
 }
