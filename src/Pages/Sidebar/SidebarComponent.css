@@ -1,0 +1,17 @@
+.Sidebar {
+  background-color: red;
+  color: #ffffff;
+  transition: width 0.3s ease-in-out;
+  overflow: hidden;
+  white-space: nowrap;
+  min-height: 100vh;
+  width: 65px;
+  position: fixed;
+}
+@media (max-width: 1024px) {
+  .Sidebar {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=SidebarComponent.css.map */
