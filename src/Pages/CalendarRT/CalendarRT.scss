@@ -18,11 +18,11 @@ $cal-rtHeight: calc((#{cards.$card-width}*2.5 + #{style.$marginX}*3)/#{style.$ra
     width: calc(#{cards.$card-width}*5 + style.$CloseSidebar-width + #{style.$marginX}*8);
     padding: style.$paddingY style.$paddingX;
     background-color: style.$cal-rtBg-color;
-    margin: style.$marginX style.$marginY;
+    margin: style.$marginX style.$marginX;
     
   }
   
-  @include m.breakpoint('large') {
+  @include m.breakpoint('medium') {
     flex-direction: row;
     height: calc($cal-rtHeight + 5px);
     

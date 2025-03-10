@@ -178,7 +178,7 @@ import "../Sidebar/SidebarComponent.scss";
 
 const ResponsiveLayout = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery("(max-width:1024px)");
+  const isMobile = useMediaQuery("(max-width:768px)");
   const [open, setOpen] = useState(false);
 
   const toggleSidebar = () => setOpen(!open);

@@ -4,15 +4,11 @@
 @use "sass:math";
 
 
-// Define breakpoints
-// $mobile: 768px;
-// $tablet: 1024px;
-$mobile: 1024px;
-
-// $width: calc(#{style.$screen-width}-#{style.$CloseSidebar-width});
+$mobile: 768px;
 $width: calc(100vw-#{style.$CloseSidebar-width});
 
-*::-webkit-scrollbar{
+
+*::-webkit-scrollbar {
   display: none;
 }
 
@@ -22,13 +18,10 @@ $width: calc(100vw-#{style.$CloseSidebar-width});
   background-color: style.$sideBar-color;
 }
 
-
-
 .ResponsiveLayout {
   height: 100vh;
   display: flex;
 
-  // Main Content Styles
   .MainContent {
     margin-left: style.$CloseSidebar-width;
     background-color: lightgray;
@@ -39,87 +32,75 @@ $width: calc(100vw-#{style.$CloseSidebar-width});
     min-height: 100%;
   }
 
-  // Navbar styles (Only for mobile)
   .Navbar {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    background-color: red;
-    height: 60px;
-
-    @media (min-width: $mobile) {
-      display: none; // Hide Navbar on larger screens
+    @include m.breakpoint('medium') {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      background-color: red;
+      height: 60px;
     }
   }
 
-  // Header styles (Hidden on mobile)
   .Header {
-    height: style.$header-height;
-    background-color: style.$headerBg-color;
-    padding: style.$paddingY style.$paddingX;
-    color: style.$whiteBg-color;
+    @include m.breakpoint('medium') {
+      height: style.$header-height;
+      background-color: style.$headerBg-color;
+      padding: style.$paddingY style.$paddingX;
+      color: style.$whiteBg-color;
 
-    @media (max-width: $mobile) {
-      display: none;
     }
   }
-
-  // Section for Cards
 
   .CardsSection {
     background-color: style.$theme-color;
     padding: style.$paddingY style.$paddingX;
+    padding-top: calc(#{style.$Uni-gap}*2);
     display: flex;
     flex-direction: row;
     height: #{cards.$card-height}1;
-    // width: #{$width};
     width: 100%;
-    overflow-x:auto;
-    
-    ::-webkit-scrollbar{
+    overflow-x: auto;
+
+    ::-webkit-scrollbar {
       display: none;
     }
-    
-    @media (max-width: 1024px) {
-      padding-top: style.$Uni-gap ;
-      min-height: cards.$mini-cardHeight;
-      display: grid;
-      grid-auto-flow: column;
-      justify-content: flex-start;
-      grid-auto-columns: min-content; // Ensures items don't shrink
-      scroll-behavior: smooth;
-      white-space: nowrap;
-      
-    }
 
-
+    // @include m.breakpoint('mobile') {
+    //   min-height: cards.$mini-cardHeight;
+    //   display: grid;
+    //   grid-auto-flow: column;
+    //   justify-content: flex-start;
+    //   grid-auto-columns: min-content;
+    //   scroll-behavior: smooth;
+    //   white-space: nowrap;
+    // }
   }
 
-
-  // Section for Charts
   .ChartSection {
     background-color: style.$theme-color;
 
-    @media (max-width: $mobile) {
-      flex: 1;
+    @include m.breakpoint('medium') {
+      background-color: style.$theme-color;
     }
   }
 
-  // Last Section
   .CalendarRT {
     background-color: style.$theme-color;
   }
 
-  // Mobile Adjustments
   @media (max-width: $mobile) {
     .MainContent {
-      margin-top: 60px;
+      margin-top: 50px;
       margin-left: 0;
     }
-
-
   }
 
+  @include m.breakpoint('medium') {
+    .MainContent {
+      margin-left: style.$CloseSidebar-width;
+    }
+  }
 }

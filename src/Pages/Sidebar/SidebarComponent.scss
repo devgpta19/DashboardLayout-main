@@ -1,8 +1,8 @@
 @use "../../Sass/style.scss" as style;
-
-$mobile: 1024px;
+@use "../../Sass/mixin" as m;
 
 .Sidebar {
+  @include m.breakpoint('medium') {
     background-color: style.$sideBar-color;
     color: style.$whiteBg-color;
     transition: width 0.3s ease-in-out;
@@ -11,8 +11,6 @@ $mobile: 1024px;
     min-height: 100vh;
     width: style.$CloseSidebar-width;
     position: fixed;
-
-    @media (max-width: $mobile) {
-      display: none;
-    }
   }
+
+}

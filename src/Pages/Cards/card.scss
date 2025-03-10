@@ -9,7 +9,7 @@ $card-height: calc(#{$card-width}/#{style.$ratio});
 // --calculated-width: calc((#{style.$screen-width} - (10 * #{style.$marginX}) - (2 * #{style.$paddingX})) / 5);
 // $mini-cardHeight: calc($mini-cardWidth/style.$ratio);
 
-$mini-cardWidth: 188px;
+$mini-cardWidth: 100px;
 $calculated-width: calc((#{style.$screen-width} - (10 * #{style.$marginX}) - (2 * #{style.$paddingX})) / 5);
 $mini-cardHeight: calc(#{$mini-cardWidth}/#{style.$ratio});
 
@@ -36,7 +36,7 @@ $mini-cardHeight: calc(#{$mini-cardWidth}/#{style.$ratio});
     height: 100%;
   }
 
-  @include m.breakpoint('large') {
+  @include m.breakpoint('medium') {
     width: $card-width;
     height: $card-height;
     margin: style.$marginY style.$marginX;
@@ -51,7 +51,7 @@ $mini-cardHeight: calc(#{$mini-cardWidth}/#{style.$ratio});
   }
 
 
-  // Laptop and larger screens: Cards stay inside the container, no scrolling
+  // Laptop and mediumr screens: Cards stay inside the container, no scrolling
   // @media (min-width: 1025px) {
   //   flex-wrap: wrap;
   //   overflow: hidden;
