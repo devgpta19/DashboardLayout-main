@@ -6,8 +6,20 @@
 $card-width: calc((#{style.$screen-width} - #{style.$CloseSidebar-width} - (10 * #{style.$marginX}) - (2 * #{style.$paddingX})) / 5);
 $card-height: calc(#{$card-width}/#{style.$ratio});
 
-$mini-cardWidth: 282px;
+// --calculated-width: calc((#{style.$screen-width} - (10 * #{style.$marginX}) - (2 * #{style.$paddingX})) / 5);
+// $mini-cardHeight: calc($mini-cardWidth/style.$ratio);
+
+$mini-cardWidth: 188px;
+$calculated-width: calc((#{style.$screen-width} - (10 * #{style.$marginX}) - (2 * #{style.$paddingX})) / 5);
 $mini-cardHeight: calc(#{$mini-cardWidth}/#{style.$ratio});
+
+// Check which value is greater and assign it to $mini-cardWidth
+// @if $mini-cardWidth > $calculated-width {
+//   $mini-cardWidth: $mini-cardWidth;
+// } @else {
+//   $mini-cardWidth: $calculated-width;
+// }
+
 
 .Box {
   flex-grow: 1;
