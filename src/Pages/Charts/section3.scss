@@ -21,7 +21,8 @@
     
     .BoxItem {
       height: calc((#{cards.$card-width}*2 + #{style.$marginX}*2)/#{style.$ratio});
-      margin: style.$marginY style.$marginX;
+      // margin: style.$marginY style.$marginX;
+      padding: #{style.$paddingY} #{style.$paddingX};
       
       &.Boxleft {
         width: calc(#{cards.$card-width}*3 + #{style.$marginX}*4);
@@ -32,14 +33,4 @@
       }
     }
   }
-
-  // @media (max-width: 1024px) {
-  //   flex-direction: column;
-  //   flex-wrap: wrap;
-
-  //   .GridItem {
-  //     flex: none; // Stack items on smaller screens
-  //     width: 100%;
-  //   }
-  // }
 }

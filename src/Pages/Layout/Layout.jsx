@@ -166,7 +166,6 @@ import {
   Typography,
   IconButton,
   useMediaQuery,
-  useTheme,
   Grid2,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -177,10 +176,8 @@ import "./Layout.scss";
 import "../Sidebar/SidebarComponent.scss";
 
 const ResponsiveLayout = () => {
-  const theme = useTheme();
   const isMobile = useMediaQuery("(max-width:768px)");
   const [open, setOpen] = useState(false);
-
   const toggleSidebar = () => setOpen(!open);
 
   return (

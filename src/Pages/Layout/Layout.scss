@@ -24,7 +24,7 @@ $width: calc(100vw-#{style.$CloseSidebar-width});
 
   .MainContent {
     margin-left: style.$CloseSidebar-width;
-    background-color: lightgray;
+    // background-color: lightgray;
     display: flex;
     flex-direction: column;
     transition: width 0.3s ease-in-out;
@@ -56,35 +56,14 @@ $width: calc(100vw-#{style.$CloseSidebar-width});
 
   .CardsSection {
     background-color: style.$theme-color;
-    padding: style.$paddingY style.$paddingX;
-    padding-top: calc(#{style.$Uni-gap}*2);
-    display: flex;
-    flex-direction: row;
-    height: #{cards.$card-height}1;
-    width: 100%;
-    overflow-x: auto;
-
+    
     ::-webkit-scrollbar {
       display: none;
     }
-
-    // @include m.breakpoint('mobile') {
-    //   min-height: cards.$mini-cardHeight;
-    //   display: grid;
-    //   grid-auto-flow: column;
-    //   justify-content: flex-start;
-    //   grid-auto-columns: min-content;
-    //   scroll-behavior: smooth;
-    //   white-space: nowrap;
-    // }
   }
 
   .ChartSection {
     background-color: style.$theme-color;
-
-    @include m.breakpoint('medium') {
-      background-color: style.$theme-color;
-    }
   }
 
   .CalendarRT {
