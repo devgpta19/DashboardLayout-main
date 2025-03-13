@@ -14,7 +14,7 @@ $chartsBg-color : #005eff;
 $cal-rtBg-color : #ffd900;
 $blackBg-color : #000000;
 $whiteBg-color : #ffffff;
-$sideBar-color : red;
+$sideBar-color : rgb(209, 209, 209);
 $headerBg-color : #606060;
 
 // SCREEN Height width
@@ -48,3 +48,4 @@ $scrollbar-width : 8px;
 
 // BORDER
 $border : 5px;
+$border-color :$blackBg-color;
