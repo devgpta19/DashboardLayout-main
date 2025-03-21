@@ -1,0 +1,63 @@
+@use "../../Sass/variable.scss" as variable;
+@use "../../Sass/mixin" as m;
+@use "sass:math";
+
+$card-width: calc(
+  (
+      #{variable.$screen-width} - #{variable.$CloseSidebar-width} -
+        (10 * #{variable.$marginX}) - (2 * #{variable.$paddingX})
+    ) / 5
+);
+$card-height: calc(#{$card-width}/#{variable.$ratio});
+
+$mini-cardWidth: 100px;
+$calculated-width: calc(
+  (#{variable.$screen-width} - (10 * #{variable.$marginX}) - (2 * #{variable.$paddingX})) /
+    5
+);
+$mini-cardHeight: calc(#{$mini-cardWidth}/#{variable.$ratio});
+
+.Box {
+  margin-top: variable.$marginX;
+  padding: variable.$paddingX;
+  background-color: variable.$theme-color;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  
+  .Card {
+    flex-grow: 1;
+    flex-shrink: 0;
+    margin: 0 #{variable.$marginX};
+    margin-top: variable.$marginX;
+    background-color: aqua;
+    min-height: $mini-cardHeight;
+    min-width: $mini-cardWidth;
+    border-radius: #{variable.$border};
+    border-bottom-left-radius: #{variable.$border};
+    border-bottom-righg-radius: #{variable.$border};
+  }
+
+  @include m.breakpoint("medium") {
+    height: 100%;
+    width: 100%;
+    background-color: variable.$theme-color;
+    padding: 0 variable.$paddingX;
+    margin: 0;
+    margin-top: variable.$marginX;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    .Card {
+      background-color: aqua;
+      width: #{$card-width};
+      height: #{$card-height};
+      padding: variable.$paddingY variable.$paddingX;
+      border-radius: #{variable.$border};
+      border-bottom-left-radius: #{variable.$border};
+      border-bottom-right-radius: #{variable.$border};
+    }
+  }
+}

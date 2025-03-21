@@ -1,0 +1,36 @@
+@use "../../Sass/variable.scss" as variable;
+@use "../Cards/card.scss" as cards;
+@use "../../Sass/mixin" as m;
+
+.BoxLayout {
+  display: flex;
+  flex-direction: column;
+  padding: variable.$paddingY variable.$paddingX;
+  color : variable.$whiteBg-color;
+  height: 1000px;
+  .BoxItem {
+    height: 50%;
+    width: calc(#{cards.$card-width}*5 + variable.$CloseSidebar-width + #{variable.$marginX}*8);
+    background-color: variable.$chartsBg-color;
+    margin: variable.$marginX variable.$marginX;
+  }
+  
+  @include m.breakpoint('medium') {
+    flex-direction: row;
+    height: calc((#{cards.$card-width}*2 + #{variable.$marginX}*2)/#{variable.$ratio});
+    
+    .BoxItem {
+      height: calc((#{cards.$card-width}*2 + #{variable.$marginX}*2)/#{variable.$ratio});
+      // margin: variable.$marginY variable.$marginX;
+      padding: #{variable.$paddingY} #{variable.$paddingX};
+      
+      &.Boxleft {
+        width: calc(#{cards.$card-width}*3 + #{variable.$marginX}*4);
+      }
+  
+      &.Boxright {
+        width: calc(#{cards.$card-width}*2 + #{variable.$marginX}*2);
+      }
+    }
+  }
+}

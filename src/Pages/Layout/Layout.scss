@@ -1,11 +1,10 @@
-@use "../../Sass/style.scss" as style;
-@use "../Cards/card.scss" as cards;
-@use "../../Sass/mixin" as m;
 @use "sass:math";
-
+@use "/src/Sass/mixin" as m;
+@use "/src/Sass/variable" as variable;
+@use "/src/Components/Cards/card.scss" as cards;
 
 $mobile: 768px;
-$width: calc(100vw-#{style.$CloseSidebar-width});
+$width: calc(100vw-#{variable.$CloseSidebar-width});
 
 
 *::-webkit-scrollbar {
@@ -15,7 +14,7 @@ $width: calc(100vw-#{style.$CloseSidebar-width});
 // .DrawerBox {
 //   height: 100%;
 //   width: 250px;
-//   background-color: style.$sideBar-color;
+//   background-color: variable.$sideBar-color;
 // }
 
 .ResponsiveLayout {
@@ -23,7 +22,7 @@ $width: calc(100vw-#{style.$CloseSidebar-width});
   display: flex;
 
   .MainContent {
-    margin-left: style.$CloseSidebar-width;
+    margin-left: variable.$CloseSidebar-width;
     // background-color: lightgray;
     display: flex;
     flex-direction: column;
@@ -46,16 +45,15 @@ $width: calc(100vw-#{style.$CloseSidebar-width});
 
   .Header {
     @include m.breakpoint('medium') {
-      height: style.$header-height;
-      background-color: style.$headerBg-color;
-      padding: style.$paddingY style.$paddingX;
-      color: style.$whiteBg-color;
-
+      height: variable.$header-height;
+      background-color: variable.$headerBg-color;
+      padding: variable.$paddingY variable.$paddingX;
+      color: variable.$whiteBg-color;
     }
   }
 
   .CardsSection {
-    background-color: style.$theme-color;
+    background-color: variable.$theme-color;
     
     ::-webkit-scrollbar {
       display: none;
@@ -63,11 +61,11 @@ $width: calc(100vw-#{style.$CloseSidebar-width});
   }
 
   .ChartSection {
-    background-color: style.$theme-color;
+    background-color: variable.$theme-color;
   }
 
   .CalendarRT {
-    background-color: style.$theme-color;
+    background-color: variable.$theme-color;
   }
 
   @media (max-width: $mobile) {
@@ -79,7 +77,7 @@ $width: calc(100vw-#{style.$CloseSidebar-width});
 
   @include m.breakpoint('medium') {
     .MainContent {
-      margin-left: style.$CloseSidebar-width;
+      margin-left: variable.$CloseSidebar-width;
     }
   }
 }

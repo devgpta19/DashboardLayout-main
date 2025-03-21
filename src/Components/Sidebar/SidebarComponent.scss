@@ -1,0 +1,237 @@
+@use "../../Sass/variable.scss" as variable;
+@use "../../Sass/mixin" as m;
+
+$SideElement-width: calc(#{variable.$OpenSideBar-width});
+
+// On LayOut before expanding
+.Sidebar {
+  background-color: variable.$sideBar-color;
+  color: variable.$whiteBg-color;
+  transition: width 0.3s ease-in-out;
+  overflow: hidden;
+  white-space: nowrap;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+
+  @include m.breakpoint("medium") {
+    background-color: variable.$sideBar-color;
+    color: variable.$whiteBg-color;
+    transition: width 0.3s ease-in-out;
+    overflow: hidden;
+    white-space: nowrap;
+    min-height: 100vh;
+    width: variable.$CloseSidebar-width;
+    position: fixed;
+    height: 100%;
+  }
+
+  &:hover {
+
+    @include m.breakpoint("medium") {
+      background-color: variable.$sideBar-color;
+      color: variable.$whiteBg-color;
+      transition: width 0.3s ease-in-out;
+      overflow: hidden;
+      white-space: nowrap;
+      min-height: 100vh;
+      width: variable.$OpenSideBar-width;
+      position: fixed;
+      height: 100%;
+    }
+  }
+}
+
+/* SwitchStyles.scss */
+
+// .ThemeBtn {
+//   &.MuiSwitch-root {
+//     padding: variable.$paddingY * 2;
+
+//     .MuiSwitch-switchBase {
+//       color: variable.$blackBg-color;
+
+//       &.Mui-checked {
+//         color: variable.$whiteBg-color; /* Changed from red to white */
+//         &:hover {
+//           background-color: rgba(variable.$theme-color, 0.2); /* Thumb hover color when checked */
+//         }
+//       }
+
+//       &:hover {
+//         background-color: rgba(variable.$theme-color, 0.2); /* Thumb hover color when unchecked */
+//       }
+//     }
+
+//     .MuiSwitch-thumb {
+//       width: variable.$border * 4;
+//       height: variable.$border * 4;
+//     }
+
+//     .MuiSwitch-track {
+//       border-radius: variable.$border * 2;
+//       background-color: variable.$whiteBg-color;
+//       // background-color: variable.$blackBg-color;
+//       opacity: 1;
+
+//       .Mui-checked & {
+//         background-color: variable.$blackBg-color;
+//       }
+//     }
+//   }
+// }
+
+.ThemeChanger {
+  background-color: variable.$sideBar-color;
+  margin: #{variable.$marginX} #{variable.$marginX};
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .ThemeBtn {
+    &.MuiSwitch-root {
+      padding: variable.$paddingY * 1.5;
+
+      .MuiSwitch-switchBase {
+        color: variable.$blackBg-color;
+
+        &.Mui-checked {
+          color: variable.$whiteBg-color;
+          &:hover {
+            background-color: rgba(variable.$theme-color, 0.2);
+          }
+        }
+
+        &:hover {
+          background-color: rgba(variable.$theme-color, 0.2);
+        }
+      }
+
+      .MuiSwitch-thumb {
+        width: variable.$border * 4;
+        height: variable.$border * 4;
+      }
+
+      .MuiSwitch-track {
+        border-radius: variable.$border * 2;
+        background-color: variable.$whiteBg-color;
+        opacity: 1;
+      }
+
+      /* Track color when checked */
+      .Mui-checked + .MuiSwitch-track {
+        background-color: variable.$blackBg-color;
+      }
+    }
+  }
+}
+
+.CloseSideBarElem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.DrawerBox {
+  // @include m.breakpoint("medium") {
+
+  height: 100%;
+  width: #{variable.$OpenSideBar-width};
+  background-color: variable.$sideBar-color;
+  padding: #{variable.$paddingX};
+
+  .List {
+    margin-top: calc(#{variable.$marginX}* 2);
+
+    .ListItems {
+      margin-top: calc(#{variable.$marginX});
+      margin-bottom: #{variable.$marginX};
+      border-radius: #{variable.$border};
+      border: 1px solid #{variable.$border-color};
+
+      display: flex;
+      justify-items: start;
+      align-items: center;
+      gap: #{variable.$Uni-gap};
+
+      &:hover {
+        background-color: lightgray;
+        cursor: pointer;
+        transform: scale(1.02);
+      }
+    }
+
+    // }
+  }
+}
+
+.SidebarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .OpenMenuIcon {
+    &:hover {
+      background-color: rgba(253, 175, 175, 0.307);
+      cursor: pointer;
+      transform: scale(1.02);
+      border-radius: #{variable.$border};
+      border: 1px solid #{variable.$border-color};
+    }
+  }
+}
+
+.SideBarTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: variable.$paddingX * 2;
+}
+
+.SidebarComponent {
+  height: 100%;
+  width: 100%;
+  padding: 0 #{variable.$paddingX*3.5};
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  padding-top: variable.$paddingX * 2;
+}
+
+.SideBarIcons {
+  border-radius: 50%;
+  background-color: rgba(201, 201, 201, 0.608);
+  color: black;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.Title {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  gap: variable.$Uni-gap;
+  padding: 0 variable.$paddingX;
+  height: 25px;  // --------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+}
+
+.SideBarElements{
+  padding: 0 #{variable.$paddingX};
+  min-width: $SideElement-width;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  // justify-content: space-between;
+  
+  &:hover{
+    // border: 1px solid white;
+    cursor: pointer;
+    background-color: rgb(201, 201, 201);
+    color: black;
+    border-radius: #{variable.$border};
+  }
+}

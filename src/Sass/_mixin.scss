@@ -1,17 +1,19 @@
+@use "sass:map";
+
 $breakpoints: (
-  'small': 320px,
-  'medium': 768px,
-  'large': 1024px,
-  'xlarge': 1200px,
-  'xxlarge': 1440px
+  small: 480px,
+  medium: 768px,
+  large: 1024px,
+  xlarge: 1200px,
+  xxlarge: 1440px,
 );
 
 @mixin breakpoint($breakpoint) {
-    @if map-has-key($breakpoints, $breakpoint) {
-      @media (min-width: map-get($breakpoints, $breakpoint)) {
-        @content;
-      }
-    }else{
-        @warn "Breakpoint '#{$breakpoint}' not found in $breakpoints map."; 
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
+      @content;
     }
+  } @else {
+    @warn "Breakpoint '#{$breakpoint}' not found in $breakpoints map.";
+  }
 }
